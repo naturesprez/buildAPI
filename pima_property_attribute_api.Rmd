@@ -75,7 +75,14 @@ library(geojsonio)
 library(geojsonR)
 library(leaflet)
 library(httr)
-librart
+library(jsonlite)
+
+```{r}
+# https://www.dataquest.io/blog/r-api-tutorial/
+
+paregion 
+```
+
 
 ```{r}
 m <- leaflet() %>%
