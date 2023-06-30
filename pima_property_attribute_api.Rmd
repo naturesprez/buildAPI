@@ -1,0 +1,98 @@
+---
+title: "pima property attribute API"
+author: "Ryan Stephenson"
+date: "2023-06-29"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax
+for authoring HTML, PDF, and MS Word documents. For more details on
+using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that
+includes both content as well as the output of any embedded R code
+chunks within the document. You can embed an R code chunk like this:
+
+------------------------------------------------------------------------
+
+From gisopendata.pima.gov, we can go to "Land Records" and find
+"Parcels - Regional" for over 400k properties, basically all properties
+within the county. The data can be downloaded in formats including CSV,
+KML, Shapefile, and GeoJSON.
+
+<https://gisopendata.pima.gov/datasets/564d8eabf5c7450d9d20510cc8a7c6a2_12/explore>
+
+Tables from this file can be combined with file tables from other
+sources using a unique key, the parcel address, to expand the
+information you can derive from any one or group of parcel(s). For
+instance, from the County Assessor:
+
+Pima County Assessor website \> downloads \> Real Property \> Real
+Property Valuation Data - [Select a Tax Year] \> MasXX.zip ("Mas22.zip")
+
+So, you want something to retrieve a formatted file from the County
+openGIS, retrieve a table from the Assessor, and join files by key. You
+might join more than two files, but that will likely increase the
+complexity of the API for the many types of necessary API calls. If you
+had an API call gathering info from a city permit database, for
+instance, the available data would be limited to the properties that
+have applied for permits instead of all properties.
+
+Responding to your first line, I think the built size is probably the
+only attribute that isn't available in the county regional parcel file.
+However, I believe that attribute is something included in the Assessor
+data.
+
+What else do you want an API to do?
+
+What is your endpoint the API is connecting to County data?
+
+Request Method ("GET") to retrieve a resource
+
+API use case: Data sharing. Any time a program needs to get data from a
+third party, data can be shared through an API.
+
+Click button Download geoJSON from County open GIS website Download
+zipfile from County Assessor Unzip file Convert Assessor table to
+geoJSON? Join assessor data to GIS data via parcel address "key" website
+updates with new geoJSON file
+
+Prompt address entry Formatted address entry, must be properly? City
+boundary, location check HOA check Space rules, zoning Space rules to
+property space check Return *available space* to build Accessory
+Dwelling Unit
+
+library(geojsonio)
+library(geojsonR)
+library(leaflet)
+library(httr)
+librart
+
+```{r}
+m <- leaflet() %>%
+  addTiles() %>%  # Add default OpenStreetMap map tiles
+  addMarkers(lng=174.768, lat=-36.852, popup="The birthplace of R")
+
+m  # Print the map
+
+# INPUT IS A PATH TO A FILE
+file_js = FROM_GeoJson(url_file_string = "https://gisdata.pima.gov/arcgis1/rest/services/GISOpenData/LandRecords/MapServer/12/query?outFields=*&where=1%3D1&f=geojson")
+
+p <- leaflet() %>% 
+  addGeoJSON(file_js)
+  
+p
+
+```
+
+<https://cran.r-project.org/web/packages/geojsonR/vignettes/the_geojsonR_package.html>
+API

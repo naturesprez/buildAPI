@@ -1,0 +1,33 @@
+{
+    "id": "DE0A021E",
+    "path": "~/r studio/buildAPI/pima_property_attribute_api.Rmd",
+    "project_path": "pima_property_attribute_api.Rmd",
+    "type": "r_markdown",
+    "hash": "0",
+    "contents": "",
+    "dirty": true,
+    "created": 1688058081498.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "82,9",
+        "scrollLine": "77",
+        "last_setup_crc32": "6f9368e9bb338d19",
+        "rmdVisualMode": "false",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "2725:891",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1688149948,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1688150062548,
+    "read_only": false,
+    "read_only_alternatives": []
+}
