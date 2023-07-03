@@ -76,6 +76,7 @@ library(geojsonR)
 library(leaflet)
 library(httr)
 library(jsonlite)
+library(dplyr)
 
 ```{r}
 # https://www.dataquest.io/blog/r-api-tutorial/
@@ -103,3 +104,30 @@ p
 
 <https://cran.r-project.org/web/packages/geojsonR/vignettes/the_geojsonR_package.html>
 API
+
+```{r}
+res <- httr::GET("http://api.open-notify.org/astros.json")
+
+```
+
+```{r}
+# Import Pima County parcels data, "paregion" attributes 
+
+paregion <- GET("https://gisdata.pima.gov/arcgis1/rest/services/GISOpenData/LandRecords/MapServer/12/query?outFields=*&where=1%3D1&f=geojson")
+```
+
+
+```{r}
+# import Assessor data
+mas22 <- read.csv('/Users/User/Documents/r studio/buildAPI/Mas22.csv', header = TRUE, sep = ",")
+
+mas22
+
+```
+
+```{r}
+# join
+paregion %>% full_join(mas22)
+joinby = join_by(PARCEL)
+```
+
